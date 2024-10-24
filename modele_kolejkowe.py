@@ -41,6 +41,13 @@ class Consultant:
         await asyncio.sleep(self.break_duration)
         self.time_on_breaks += self.break_duration
 
+    def to_dict(self):
+        return {
+            'handled_calls': self.handled_calls,
+            'time_on_calls': self.time_on_calls,
+            'time_on_breaks': self.time_on_breaks
+        }
+
 
 async def client_arrival(client_queue, lambda_, num_clients, max_queue_size, rejected_clients, logging):
     """Function which simulates client arrivals using a Poisson process based on lambda (arrival rate)."""
@@ -104,7 +111,15 @@ async def simulate_queue(lambda_, mu, num_clients, num_consultants, max_queue_si
         print(f"Rejected clients: {rejected_clients}")
     else:
         save_to_csv(queue_from_time, sim_name)
-        #TODO: save average times etc to json of the same name
+        data = {
+            'total_clients_processed': len(processed_clients),
+            'total_clients_rejected': len(rejected_clients),
+            'average_wait_time': avg_wait_time,
+            'queue_size_limit': max_queue_size,
+            'rejected_clients': rejected_clients,
+            'consultants': [consultant.to_dict() for consultant in consultants]
+        }
+        save_to_json(data, sim_name)
 
 def save_to_csv(data, file_name):
     headers = ["Queue_size", "Time"]
@@ -116,6 +131,13 @@ def save_to_csv(data, file_name):
         writer.writerow(headers)
         for value, time in data:
             writer.writerow([value, time])
+
+def save_to_json(data, file_name):
+    if not os.path.exists("results"):
+        os.makedirs("results")
+    path = os.path.join("results", file_name+".json")
+    with open(path, 'w') as json_file:
+        json.dump(data, json_file, indent=4)
 
 def load_parameters_from_file(path):
     with open(path, 'r') as file:

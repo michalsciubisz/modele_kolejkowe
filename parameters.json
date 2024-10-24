@@ -1,0 +1,24 @@
+{
+  "live_logging": false,
+  "simulation_1": {
+    "lambda": 1.0,
+    "mu": 0.6,
+    "num_clients": 40,
+    "num_consultants": 3,
+    "max_queue_size": 10
+  },
+  "simulation_2": {
+    "lambda": 1.8,
+    "mu": 2.5,
+    "num_clients": 150,
+    "num_consultants": 3,
+    "max_queue_size": 20
+  },
+  "simulation_3": {
+    "lambda": 2.0,
+    "mu": 4.0,
+    "num_clients": 200,
+    "num_consultants": 4,
+    "max_queue_size": 15
+  }
+}
