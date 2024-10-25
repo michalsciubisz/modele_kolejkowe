@@ -148,7 +148,7 @@ def run_all_simulations():
     if len(parameters.items()) == 0:
         # Parameters for the simulation
         lambda_ = 1.0  # Arrival rate: on average 1 client per second
-        mu = 0.6  # Service rate: on average 0.8 clients handled per second (mean service time = 1/μ)
+        mu = 0.6  # Service rate: on average 0.6 clients handled per second (mean service time = 1/μ)
         num_clients = 30  # Number of clients
         num_consultants = 3  # Number of consultants
         max_queue_size = 5  # Maximum number of clients allowed in the queue

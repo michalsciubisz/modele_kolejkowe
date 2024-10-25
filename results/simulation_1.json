@@ -1,23 +1,23 @@
 {
     "total_clients_processed": 40,
     "total_clients_rejected": 0,
-    "average_wait_time": 0.033537942171096805,
+    "average_wait_time": 0.02271767854690552,
     "queue_size_limit": 10,
     "rejected_clients": [],
     "consultants": [
         {
-            "handled_calls": 14,
-            "time_on_calls": 4.165459291852488,
-            "time_on_breaks": 14
+            "handled_calls": 15,
+            "time_on_calls": 7.025364290960872,
+            "time_on_breaks": 15
         },
         {
-            "handled_calls": 14,
-            "time_on_calls": 5.823444148155381,
-            "time_on_breaks": 14
+            "handled_calls": 13,
+            "time_on_calls": 5.842526799508867,
+            "time_on_breaks": 13
         },
         {
             "handled_calls": 12,
-            "time_on_calls": 5.433581865290195,
+            "time_on_calls": 7.328024789788406,
             "time_on_breaks": 12
         }
     ]
